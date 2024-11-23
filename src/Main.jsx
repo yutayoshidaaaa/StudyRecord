@@ -73,6 +73,10 @@ const Record = () => {
           newSubject={newSubject}
           setNewSubject={setNewSubject}
           addSubject={addSubject}
+          selectedSubject={selectedSubject}
+          subjects={subjects}
+          setRecords={setRecords}
+          setSubjects={setSubjects}
         />
         <SubjectSelector
           subjects={subjects}

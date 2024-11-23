@@ -1,4 +1,7 @@
+
+
 const SubjectSelector = ({ subjects, selectedSubject, setSelectedSubject }) => {
+
     return (
         <>
             <div className="flex justify-center p-5 mr-20 rounded-2xl">
@@ -17,6 +20,12 @@ const SubjectSelector = ({ subjects, selectedSubject, setSelectedSubject }) => {
                 <h2 className="ml-5 font-bold text-white font-Jrounded">
                     選択中の科目: {selectedSubject}
                 </h2>
+
+         
+
+
+
+            
             </div>
         </>
     );

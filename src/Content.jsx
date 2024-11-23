@@ -7,7 +7,6 @@ const Content = ({
   selectedSubject,
   IsModalOpen,
   setIsModalOpen,
-  expandedMemo,
   setExpandedMemo,
 }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
