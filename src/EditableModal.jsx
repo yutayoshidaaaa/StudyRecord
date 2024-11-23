@@ -28,15 +28,15 @@ const EditableModal = ({
             <div className="flex gap-4">
               <button
                 onClick={() => setEditMode(true)}
-                className="px-4 py-2 bg-blue-200 text-black font-bold rounded-lg hover:bg-blue-400 transition duration-300"
+                className="px-4 py-2 bg-blue-200 text-black font-bold rounded-lg hover:bg-blue-400 transition duration-300 font-Jrounded"
               >
-                <img src="./edit.png" alt="edit" className="h-8 w-8" />
+                編集
               </button>
               <button
                 onClick={onDelete}
-                className="px-4 py-2 bg-red-200 text-black font-bold rounded-lg hover:bg-red-400 transition duration-300"
+                className="px-4 py-2 bg-red-200 text-black font-bold rounded-lg hover:bg-red-400 transition duration-300 font-Jrounded"
               >
-                <img src="./delete.png" alt="Delete" className="h-8 w-8" />
+                削除
               </button>
               <button
                 onClick={() => {

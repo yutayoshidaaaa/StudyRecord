@@ -43,7 +43,7 @@ const AddSubject = ({ newSubject, setNewSubject, addSubject, subjects, setSubjec
       <div className="flex flex-col items-center">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="px-4 py-2 bg-gray-500 text-white font-bold rounded hover:bg-red-700"
+          className="px-4 py-2 bg-gray-500 text-white font-bold rounded hover:bg-red-700 font-Jrounded"
         >
           科目削除
         </button>
