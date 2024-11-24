@@ -1,6 +1,6 @@
 # StudyRecord
 
-![StudyRecord](https://yutayoshidaaaa.github.io/StudyRecord)
+[StudyRecord](https://yutayoshidaaaa.github.io/StudyRecord)
 
 StudyRecordは、学習進捗を効率的に管理するためのWebアプリケーションです。このアプリケーションを使えば、勉強時間や学習内容を記録・分析し、学習目標の達成をサポートします。
 
@@ -41,13 +41,11 @@ StudyRecordは、学生や自己学習者が自身の学習を計画的に管理
   - 学習した科目やトピックを簡単に登録できます。
 
 - **時間管理**
-  - 各科目の学習時間を追跡し、日ごと・週ごとの進捗を把握できます。
+  - 各科目の学習時間を追跡し、日ごとの進捗を把握できます。
 
 - **カスタマイズ可能な科目リスト**
   - 自分の学習内容に合わせた科目リストを作成可能です。
 
-- **学習履歴の分析**
-  - 視覚的なグラフやデータで進捗を確認できます。（※将来的な機能として検討中）
 
 ---
 
@@ -55,18 +53,14 @@ StudyRecordは、学生や自己学習者が自身の学習を計画的に管理
 
 このアプリケーションをローカル環境で実行するには、以下の手順を実行してください：
 
-1. **リポジトリをクローン**
+ **リポジトリをクローン**
    ```bash
    git clone https://github.com/yutayoshidaaaa/StudyRecord.git
    cd StudyRecord
+```
 
-2. **必要なパッケージをインストール**
-  ```bash
-    npm install
+## 将来実装したいと考えている機能
 
-3. **開発サーバーを起動**
-  ```bash
-    npm start
-
-## アプリケーションは以下で公開しています##
-👉 https://yutayoshidaaaa.github.io/StudyRecord/
+- **グラフを用いて可視化**  
+- **テーマカラーの手動変更**  
+- **キーワード検索**  
