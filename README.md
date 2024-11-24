@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# StudyRecord
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![StudyRecord](https://yutayoshidaaaa.github.io/StudyRecord)
 
-## Available Scripts
+StudyRecordは、学習進捗を効率的に管理するためのWebアプリケーションです。このアプリケーションを使えば、勉強時間や学習内容を記録・分析し、学習目標の達成をサポートします。
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 説明
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+StudyRecordは、学生や自己学習者が自身の学習を計画的に管理するためのツールです。  
+以下のような場面で役立ちます：
+- 学習時間を可視化したいとき
+- 複数の科目やトピックを効率よく管理したいとき
+- 達成目標を明確にし、モチベーションを維持したいとき
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+シンプルで直感的なUIにより、初心者でも簡単に利用できます。
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 使用技術
 
-### `npm run build`
+このアプリケーションは以下の技術スタックを使用して構築されています：
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **フロントエンド**
+  - React.js  
+  - Tailwind CSS  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **開発ツール**
+  - Visual Studio Code
+  - npm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **デプロイ**
+  - GitHub Pages
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 主な機能
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **学習内容の記録**
+  - 学習した科目やトピックを簡単に登録できます。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **時間管理**
+  - 各科目の学習時間を追跡し、日ごと・週ごとの進捗を把握できます。
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **カスタマイズ可能な科目リスト**
+  - 自分の学習内容に合わせた科目リストを作成可能です。
 
-## Learn More
+- **学習履歴の分析**
+  - 視覚的なグラフやデータで進捗を確認できます。（※将来的な機能として検討中）
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## インストール方法
 
-### Code Splitting
+このアプリケーションをローカル環境で実行するには、以下の手順を実行してください：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **リポジトリをクローン**
+   ```bash
+   git clone https://github.com/yutayoshidaaaa/StudyRecord.git
+   cd StudyRecord
 
-### Analyzing the Bundle Size
+2. **必要なパッケージをインストール**
+  ```bash
+    npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **開発サーバーを起動**
+  ```bash
+    npm start
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## アプリケーションは以下で公開しています##
+👉 https://yutayoshidaaaa.github.io/StudyRecord/
