@@ -5,7 +5,6 @@ const Content = ({
   records,
   setRecords,  
   selectedSubject,
-  IsModalOpen,
   setIsModalOpen,
   setExpandedMemo,
 }) => {

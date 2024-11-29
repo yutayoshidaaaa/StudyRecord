@@ -4,6 +4,7 @@ import SubjectSelector from "./SubjectSelector"
 import RecordInput from "./RecordInput"
 import Content from "./Content";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const getToday = () => new Date().toISOString().split("T")[0];
 
@@ -65,10 +66,16 @@ const Record = () => {
     };
   
     return (
-      <div className="bg-gray-900 min-h-screen">
-        <h1 className="font-bold text-7xl flex justify-center items-center text-yellow-200 font-fantasy">
-          Study Record
-        </h1>
+      <div className="bg-gray-900 min-h-screen" id="main">
+        <div className="flex items-center justify-between px-4">
+          <Link to="/">
+            <h2 className="text-2xl text-yellow-200 font-fantasy">Top</h2>
+          </Link>
+          <h1 className="font-bold text-7xl text-center text-yellow-200 font-fantasy flex-1">
+            Study Record
+          </h1>
+        </div>
+
         <AddSubject
           newSubject={newSubject}
           setNewSubject={setNewSubject}

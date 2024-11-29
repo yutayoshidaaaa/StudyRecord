@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const AddSubject = ({ newSubject, setNewSubject, addSubject, subjects, setSubjects, setRecords }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // モーダル表示管理
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const [selectedDeleteSubject, setSelectedDeleteSubject] = useState("");
 
   const deleteSubject = (subject) => {
