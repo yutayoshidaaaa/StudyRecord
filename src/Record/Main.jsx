@@ -68,7 +68,7 @@ const Record = () => {
     return (
       <div className="bg-gray-900 min-h-screen" id="main">
         <div className="flex items-center justify-between px-4">
-          <Link to="/">
+          <Link to="/StudyRecord">
             <h2 className="text-2xl text-yellow-200 font-fantasy">Top</h2>
           </Link>
           <h1 className="font-bold text-7xl text-center text-yellow-200 font-fantasy flex-1">
