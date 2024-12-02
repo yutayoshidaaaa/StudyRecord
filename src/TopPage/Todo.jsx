@@ -11,6 +11,7 @@ const Todo = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editIndex, setEditIndex] = useState(null);
     const [editTask, setEditTask] = useState({ date: "", content: "", time: "" });
+    const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
         const savedResults = JSON.parse(localStorage.getItem("todoResults"));
@@ -42,6 +43,7 @@ const Todo = () => {
                 date: dateInput,
                 content: contentInput,
                 time: timeInput,
+                isChecked: false,
             },
         ]);
 
@@ -79,145 +81,129 @@ const Todo = () => {
         setIsModalOpen(false);
     };
 
+    const handleCheckboxChange = (index) => (e) => {
+        const updatedResults = result.map((task, i) =>
+            i === index ? { ...task, isChecked: e.target.checked } : task
+        );
+        setResult(updatedResults);
+    
+        if (Detailcontent && Detailcontent.content === result[index].content) {
+            setDetailContent(updatedResults[index]);
+        }
+    };
+    
+
+
     return (
         <>
-            <h1 className="text-4xl font-Yusei font-bold m-8" id="Todo">今日のタスクを決めよう！</h1>
-
-            <div className="flex border-x-2">
-                <div className="flex flex-col space-y-4 m-8 w-1/5 border-r-8">
+            <h1 className="text-4xl font-Yusei font-bold my-8 text-center" id="Todo">
+                今日のタスクを決めよう！
+            </h1>
+    
+            <div className="container mx-auto flex flex-col lg:flex-row lg:space-x-8 px-4">
+                <div className="flex flex-col space-y-4 p-8 lg:w-1/4 bg-white shadow-lg rounded-lg">
                     <h2 className="text-xl font-bold font-Yusei">タスクを作成</h2>
                     <input
                         type="text"
                         value={dateInput}
                         onChange={(e) => setDateInput(e.target.value)}
-                        className="max-w-48 h-16 border-2 border-black font-Yusei rounded-2xl"
+                        className="w-full h-12 border-2 border-gray-300 font-Yusei rounded-lg px-4"
                     />
-
+    
                     <textarea
-                        type="text"
                         value={contentInput}
                         onChange={(e) => setContentInput(e.target.value)}
                         placeholder="今日やることを入力"
-                        className="max-w-48 h-16 border-2 border-black font-Yusei rounded-2xl"
+                        className="w-full h-16 border-2 border-gray-300 font-Yusei rounded-lg px-4"
                     />
-
+    
                     <input
                         type="number"
                         value={timeInput}
                         onChange={(e) => setTimeInput(e.target.value)}
                         placeholder="目標時間を入力"
-                        className="max-w-48 h-16 border-2 border-black font-Yusei rounded-2xl"
+                        className="w-full h-12 border-2 border-gray-300 font-Yusei rounded-lg px-4"
                     />
                     <button
                         onClick={handleSubmit}
-                        className="mt-4 p-2 border-2 border-black font-Yusei rounded-2xl max-w-32
-                                   hover:translate-y-2 duration-300 ease-in-out"
+                        className="mt-4 py-2 px-4 border-2 border-black font-Yusei rounded-lg w-full
+                                   hover:bg-gray-100 transition duration-300"
                     >
                         リストに追加
                     </button>
                 </div>
-
-                {result.length > -1 && (
-                    <div className="w-3/5 pr-4 border-r-8">
-                        <h2 className="text-xl font-bold font-Yusei mt-8">今日のTodoリスト</h2>
-                        <ul className="grid grid-cols-3 gap-4">
-                            {result.map((result, index) => (
-                                <li
-                                    key={index}
-                                    className={`m-4 flex justify-between items-center p-4 rounded-2xl
-                                        ${index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"}`}
-                                >
-                                    <div>
-                                        <p className="font-Yusei">
-                                            {index + 1}:{" "}
-                                            {result.content.length > 8
-                                                ? `${result.content.slice(0, 8)}...`
-                                                : result.content}
-                                        </p>
-                                        <p className="font-Yusei">目標時間: {result.time}時間</p>
-                                    </div>
+   
+                <div className="lg:w-2/4 p-8">
+                    <h2 className="text-xl font-bold font-Yusei">今日のTodoリスト</h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                        {result.map((task, index) => (
+                            <li
+                                key={index}
+                                className={`p-4 rounded-lg shadow-lg 
+                                    ${index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"}`}
+                            >
+                                <div>
+                                    <p className="font-Yusei flex items-center space-x-2">
+                                        <input
+                                            type="checkbox"
+                                            checked={task.isChecked}
+                                            onChange={handleCheckboxChange(index)}
+                                        />
+                                        <span>
+                                            {task.content.length > 8
+                                                ? `${task.content.slice(0, 8)}...`
+                                                : task.content}
+                                        </span>
+                                    </p>
+                                    <p className="font-Yusei text-sm text-gray-600">
+                                        目標時間: {task.time}時間
+                                    </p>
+                                </div>
+                                <div className="flex justify-between items-center mt-4">
                                     <button
-                                        className="border border-black rounded-xl px-4 py-1 ml-4 whitespace-nowrap font-Yusei"
-                                        onClick={() => handleDetail(result)}
+                                        className="text-blue-500 underline font-Yusei"
+                                        onClick={() => handleDetail(task)}
                                     >
                                         詳細
                                     </button>
-                                    <div className="absolute bottom-0 right-72 gap-8 flex mb-80">
+                                    <div className="flex space-x-4">
                                         <img
                                             src={`${process.env.PUBLIC_URL}/images/edit.png`}
                                             alt="edit"
-                                            className="w-10 h-10"
+                                            className="w-6 h-6 cursor-pointer"
                                             onClick={() => handleEdit(index)}
                                         />
                                         <img
                                             src={`${process.env.PUBLIC_URL}/images/delete.png`}
                                             alt="delete"
-                                            className="w-10 h-10"
+                                            className="w-6 h-6 cursor-pointer"
                                             onClick={() => handleDelete(index)}
                                         />
                                     </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
-                <div className="w-96 mt-8">
-                    <h3 className="text-xl font-bold mb-4 font-Yusei">詳細内容</h3>
-                    {Detailcontent && (
-                        <div className="mt-4 pr-4 space-y-2">
-                            <p className="font-Yusei">日付: {Detailcontent.date}</p>
-                            <p className="font-Yusei">内容: {Detailcontent.content}</p>
-                            <p className="font-Yusei">目標時間: {Detailcontent.time}時間</p>
-                        </div>
-                    )}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-
-                {isModalOpen && (
-                    <div>
-                        <div className="flex flex-col space-y-2">
-                            <h2 className="font-Yusei font-bold">タスクを編集</h2>
-                            <input
-                                type="text"
-                                value={editTask.date}
-                                onChange={(e) => setEditTask({ ...editTask, date: e.target.value })}
-                                className="border-2 border-black rounded-xl font-Yusei"
-                            />
-
-                            <textarea
-                                value={editTask.content}
-                                onChange={(e) => setEditTask({ ...editTask, content: e.target.value })}
-                                className="border-2 border-black rounded-xl font-Yusei"
-                            />
-
-                            <input
-                                type="number"
-                                value={editTask.time}
-                                onChange={(e) => setEditTask({ ...editTask, time: e.target.value })}
-                                className="border-2 border-black rounded-xl font-Yusei"
-                            />
-
-                            <div>
-                                <button
-                                    onClick={() => setIsModalOpen(false)}
-                                    className="m-2 font-Yusei"
-                                >
-                                    キャンセル
-                                </button>
-
-                                <button
-                                    onClick={handleSaveEdit}
-                                    className="m-2 font-Yusei"
-                                >
-                                    保存
-                                </button>
+    
+                <div className="lg:w-1/4 p-8 bg-white shadow-lg rounded-lg">
+                    <h3 className="text-xl font-bold mb-4 font-Yusei">詳細内容</h3>
+                    {Detailcontent &&
+                        result.some((task) => task.content === Detailcontent.content) && (
+                            <div className="mt-4 space-y-2">
+                                <p className="font-Yusei">日付: {Detailcontent.date}</p>
+                                <p className="font-Yusei">内容: {Detailcontent.content}</p>
+                                <p className="font-Yusei">目標時間: {Detailcontent.time}時間</p>
+                                {Detailcontent.isChecked && (
+                                    <p className="font-Yusei text-green-500 font-bold">完了</p>
+                                )}
                             </div>
-                        </div>
-                    </div>
-                )}
+                        )}
+                </div>
             </div>
         </>
     );
+    
 };
 
 export default Todo;
