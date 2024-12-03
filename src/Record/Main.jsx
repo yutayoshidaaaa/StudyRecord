@@ -66,53 +66,71 @@ const Record = () => {
     };
   
     return (
-      <div className="bg-gray-900 min-h-screen" id="main">
-        <div className="flex items-center justify-between px-4">
-          <Link to="/StudyRecord">
-            <h2 className="text-2xl text-yellow-200 font-fantasy">Top</h2>
-          </Link>
-          <h1 className="font-bold text-7xl text-center text-yellow-200 font-fantasy flex-1">
-            Study Record
-          </h1>
+      <div className="bg-gray-900 min-h-screen flex flex-col items-center" id="main">
+        <div className="w-full max-w-4xl mt-8 px-4">
+          <div className="relative flex items-center justify-center">
+            <Link
+              to="/StudyRecord"
+              className="absolute left-0 text-2xl text-yellow-200 font-fantasy"
+            >
+              Top
+            </Link>
+            <h1 className="font-bold text-5xl md:text-6xl text-center text-yellow-200 font-fantasy">
+              Study Record
+            </h1>
+          </div>
         </div>
+      
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-4xl mt-8 px-4">
+          <AddSubject
+            newSubject={newSubject}
+            setNewSubject={setNewSubject}
+            addSubject={addSubject}
+            selectedSubject={selectedSubject}
+            subjects={subjects}
+            setRecords={setRecords}
+            setSubjects={setSubjects}
+          />
+          <SubjectSelector
+            subjects={subjects}
+            selectedSubject={selectedSubject}
+            setSelectedSubject={setSelectedSubject}
+          />
+          <RecordInput
+            selectedSubject={selectedSubject}
+            contentInput={contentInput}
+            setContentInput={setContentInput}
+            timeInput={timeInput}
+            setTimeInput={setTimeInput}
+            memoInput={memoInput}
+            setMemoInput={setMemoInput}
+            dateInput={dateInput}
+            setDateInput={setDateInput}
+            addContent={addContent}
+          />
+        </div>
+      
+        <div className="mt-8 w-full max-w-5xl px-4">
+          <Content
+            records={records}
+            setExpandedMemo={setExpanededMemo}
+            IsModalOpen={IsModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            expandedMemo={ExpandedMemo}
+            selectedSubject={selectedSubject}
+            setRecords={setRecords}
+          />
+        </div>
+    </div>
+    
 
-        <AddSubject
-          newSubject={newSubject}
-          setNewSubject={setNewSubject}
-          addSubject={addSubject}
-          selectedSubject={selectedSubject}
-          subjects={subjects}
-          setRecords={setRecords}
-          setSubjects={setSubjects}
-        />
-        <SubjectSelector
-          subjects={subjects}
-          selectedSubject={selectedSubject}
-          setSelectedSubject={setSelectedSubject}
-        />
-        <RecordInput
-          selectedSubject={selectedSubject}
-          contentInput={contentInput}
-          setContentInput={setContentInput}
-          timeInput={timeInput}
-          setTimeInput={setTimeInput}
-          memoInput={memoInput}
-          setMemoInput={setMemoInput}
-          dateInput={dateInput}
-          setDateInput={setDateInput}
-          addContent={addContent}
-        />
-        <Content 
-          records={records}
-          setExpandedMemo={setExpanededMemo}
-          IsModalOpen={IsModalOpen}
-          setIsModalOpen={setIsModalOpen}
-          expandedMemo={ExpandedMemo}
-          selectedSubject={selectedSubject}
-          setRecords={setRecords}
-        />
-      </div>
+    
+    
+
     );
   };
   
   export default Record;
+
+
+  
