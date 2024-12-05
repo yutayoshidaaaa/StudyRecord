@@ -12,10 +12,10 @@ const Content = ({
   const [currentRecord, setCurrentRecord] = useState(null);
 
   const openModal = (memoContent, record) => {
-    setExpandedMemo(memoContent); // メモ内容をセット
-    setIsModalOpen(true); // 親コンポーネントから渡されたモーダル状態を更新
-    setCurrentRecord(record); // 現在のレコードをセット
-    setIsEditModalOpen(true); // 編集用モーダルを開く
+    setExpandedMemo(memoContent);
+    setIsModalOpen(true);
+    setCurrentRecord(record);
+    setIsEditModalOpen(true);
   };
 
   const handleSave = (content, time, memo) => {
