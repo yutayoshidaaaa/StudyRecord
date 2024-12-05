@@ -1,6 +1,6 @@
 # StudyRecord
 
-[StudyRecord](https://yutayoshidaaaa.github.io/)
+[StudyRecord](https://yutayoshidaaaa.github.io/StudyRecord)
 
 StudyRecordは、学習進捗を効率的に管理するためのWebアプリケーションです。このアプリケーションを使えば、勉強時間や学習内容を記録・分析し、学習目標の達成をサポートします。
 
